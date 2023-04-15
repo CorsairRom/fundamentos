@@ -63,5 +63,8 @@ def data_bike_by_url(url):
     
     return dic_exit
 
-pru = data_bike_by_url('https://www.megazip.net/zapchasti-dlya-motocyklov/suzuki/gsx-r750-2301/gsx-r750-13989/gsx-r750u2k8-e2-k8-768043')
-print(pru)
+if __name__ == '__main__':
+    data_bike_by_url()
+
+# pru = data_bike_by_url('https://www.megazip.net/zapchasti-dlya-motocyklov/suzuki/gsx-r750-2301/gsx-r750-13989/gsx-r750u2k8-e2-k8-768043')
+# print(pru)
