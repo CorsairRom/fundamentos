@@ -56,7 +56,7 @@ def data_bike_by_url(url):
             
         # create dictionary
         dic_init['part_name'] = part_name
-        dic_init['part_redirect'] = part_redirect
+        dic_init['part_redirect'] = 'https://www.megazip.net' + part_redirect
         dic_init['part_img_src'] = part_img_src
         # add data to external dictionary
         dic_exit.append(dic_init)
