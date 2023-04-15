@@ -31,8 +31,13 @@ def data_bike_by_url(url):
         part_img_src = li.find('img').attrs['src']
         img_data = requests.get(part_img_src).content
         name_img = part_img_src.split('/')[-1]
-        with open(f'C:\/Web\/python\/webscraping\/fundamentos\/img-catalog\/{url_short}\/{name_img}', mode='wb') as handler:
-            handler.write(img_data)
+        img_rute = f'C:\/Web\/python\/webscraping\/fundamentos\/img-catalog\/{url_short}\/{name_img}'
+        img_exist = os.path.exists(img_rute)
+        if not img_exist:
+            with open(img_rute, mode='wb') as handler:
+                handler.write(img_data)
+        else:
+            print('img exist')
         
         dic_init['part_name'] = part_name
         dic_init['part_redirect'] = part_redirect

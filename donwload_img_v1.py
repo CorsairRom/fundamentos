@@ -10,10 +10,15 @@ print(isExist)
 if not isExist:
    # Create a new directory because it does not exist
    pr= os.makedirs(path)
-   print(pr)
+
 
 name_img = url.split('/')[-1]
 
 img_data = requests.get(url).content
-with open(f'C:\/Web\/python\/webscraping\/fundamentos\/img-catalog\/{url_text}\/{name_img}', mode='wb') as handler:
-    handler.write(img_data)
+img_rute = f'C:\/Web\/python\/webscraping\/fundamentos\/img-catalog\/{url_text}\/{name_img}'
+img_exist = os.path.exists(img_rute)
+if not img_exist:
+    with open(img_rute, mode='wb') as handler:
+        handler.write(img_data)
+else:
+    print('img exist')
