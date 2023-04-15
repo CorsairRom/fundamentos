@@ -1,6 +1,7 @@
 import requests
 from bs4 import BeautifulSoup
 import os
+import json
 
 def data_bike_by_url(url):
     # initialize dictionary
@@ -52,6 +53,7 @@ def data_bike_by_url(url):
                 handler.write(img_data)
         else:
             print('img exist')
+            
         # create dictionary
         dic_init['part_name'] = part_name
         dic_init['part_redirect'] = part_redirect
@@ -60,6 +62,10 @@ def data_bike_by_url(url):
         dic_exit.append(dic_init)
     # add url as first element of dictionary     
     dic_exit[0]={'url': url}
+    for d in dic_exit:
+        d = open(f'C:\/Web\/python\/webscraping\/fundamentos\/img-catalog\/{url_short}\/{url_short}.json', 'w')
+        json.dump(dic_exit, d)
+        d.close()
     
     return dic_exit
 
