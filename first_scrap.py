@@ -17,7 +17,7 @@ res = requests.get(url, headers=headers)
 print(res.status_code)
 soup = BeautifulSoup(res.text, 'html.parser')
 clase = soup.find('ul', class_='part-group').find_all(class_='part-group__item')
-
+print(clase.find('script'))
 count = []
 part_finds = []
 
